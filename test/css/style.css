@@ -1,0 +1,31 @@
+
+body{
+	font-family: verdanna;
+
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+
+
+form{
+	padding: 1rem;
+}
+.form-label{
+	font-weight: 700;
+	font-size: 0.9rem;
+}
+
+hr {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 3px solid rgb(171, 132, 94);
+}
+
+
+input[type="text"]:disabled{ 
+	background: #fff;
+	border: 0px solid #fff; }
+

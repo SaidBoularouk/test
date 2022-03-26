@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Said Boularouk</title>
+	<meta charset="UTF-8">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<form>
+
+<!-- ## Container for Operation
+	          ##
+	          ##     ##  --> 
+<div class="container-fluid p-3 " id="container-main">
+
+<div class="row">
+	<div class="col-8">
+	<h4>Entrée de fonds de caisse</h4>
+	</div>
+	<div class="col-4"><a href="admin.php" class="link-primary">Admin</a></div>
+	<hr>
+</div>	
+  
+<div class="row ps-5">  
+	<div class="col-6">
+		<div class="mb-3">
+		<label for="typeOperation" class="form-label">Type d'Operation</label>
+		<select class="form-select" aria-label="Default select" id="type">
+		<option  value="-1" selected>Selectionnez une opération</option>
+		<option  value="depot">Dépot de caisse</option>
+		<option value="retrait">Retrait de caisse</option>
+		</select>
+		</div>
+
+		<div class="mb-3">
+		<label for="date" class="form-label">Date</label>
+		<input id="date" class="form-control" type="date"  />
+		</div>
+	</div>
+
+	<div class="col-6">
+		<div class="d-flex align-items-center justify-content-center"><h1>0€</h1></div>
+	</div>
+</div>
+
+	<div class="row ps-5">
+		<div class="mb-3">
+			<label for="note" class="form-label">Note</label>
+			<textarea class="form-control" rows="1" maxlength="300" id="note"></textarea> 
+	   	</div>
+	</div>   	
+
+</div>
+
+<!-- end container -->
+
+
+<section id="container-money">
+<!-- ## Container for billets
+	          ##
+	          ##     ##  --> 
+<div class="container-fluid p-3">
+<div class="row">
+	<h4>Billets</h4>
+	<hr>
+</div>	
+  
+<div class="row ps-5">  
+	<div class="col-6">
+		<div class="row mb-3" id="row-billets">
+		<div class="col">
+			<select class="form-select" aria-label="Default select">
+				<option value="-1">--</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select>
+		</div>
+		<div class="col">
+			<input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" />
+		</div>
+		</div>
+		<div class="d-grid gap-2 d-md-block mb-3"><input class="btn btn-success btn-sm" type="button" id="btn-billets" value="Ajout"></div>
+	</div>
+	<div class="col-6"><div class="d-flex align-items-center justify-content-center" id="subTotal-billets"><h3 class="sum">0€</h3></div></div>
+</div>
+
+</div>		
+<!-- end container -->
+
+
+<!-- ## Container for Pièces
+	          ##
+	          ##     ##  --> 
+<div class="container-fluid p-3 ">
+<div class="row">
+	<h4>Pièces</h4>
+	<hr>
+</div>	
+  
+<div class="row ps-5">  
+	<div class="col-6">
+		<div class="row mb-3" id="row-pieces">
+		<div class="col">
+			<select class="form-select" aria-label="Default select">
+				<option value="-1">--</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+		</div>
+		<div class="col">
+			<input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" />
+		</div>
+		</div>
+		<div class="d-grid gap-2 d-md-block mb-3"><input class="btn btn-success btn-sm" type="button" id="btn-pieces" value="Ajout"></div>
+	</div>
+	<div class="col-6"><div class="d-flex align-items-center justify-content-center"><h3 class="sum">0€</h3></div></div>
+</div>
+
+</div>		
+<!-- end container -->
+
+
+<!-- ## Container for Pièces
+	          ##
+	          ##     ##  --> 
+<div class="container-fluid p-3 ">
+<div class="row">
+	<h4>Centimes</h4>
+	<hr>
+</div>	
+  
+<div class="row ps-5">  
+	<div class="col-6">
+		<div class="row mb-3" id="row-centimes">
+		<div class="col">
+			<select class="form-select" aria-label="Default select">
+				<option value="-1">--</option>
+				<option value="0.01">1</option>
+				<option value="0.02">2</option>
+				<option value="0.05">5</option>
+				<option value="0.10">10</option>
+				<option value="0.20">20</option>
+				<option value="0.50">50</option>
+			</select>
+		</div>
+		<div class="col">
+			<input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" />
+		</div>
+		</div>
+		<div class="d-grid gap-2 d-md-block mb-3"><input class="btn btn-success btn-sm" type="button" id="btn-centimes" value="Ajout"></div>
+	</div>
+	<div class="col-6"><div class="d-flex align-items-center justify-content-center"><h3 class="sum">0€</h3></div></div>
+</div>
+
+</div>		
+<!-- end container -->
+
+<div class="container-fluid mt-3"><div class="col-md-12 text-center">
+	<button type="button" class="btn btn-secondary btn-xl" id="submit">Enregistrer</button>
+	</div>
+</div>
+</section>
+
+</form>
+
+
+</body>
+
+
+<script type="text/javascript">
+	
+$(document).ready(function () {
+document.getElementById('date').valueAsDate = new Date();
+
+var total = 0;
+var total_billets = 0;
+var total_pieces = 0;
+var total_centimes = 0;
+onChange();
+//getTotal();
+cloneMe();
+
+
+
+$("#container-fluid").find("input[type=number], select").each(function(){
+	//console.log( this );
+});
+
+
+function onChange(){
+	var	tmp=[];
+	var rows = "";
+	$("input[type=number], select").on("change", function(){
+		rows = $(this).closest("div.col-6").find("div.row");
+		var idRows = rows.attr("id");
+		tmp[idRows] =[];
+		$(rows).each(function(index){
+			var selectedVal = $(this).children().find("select").val();
+			var quantity = $(this).children().find("input").val(); 
+			
+			if ( quantity >= 0 &&  selectedVal >= 0){
+				tmp[idRows][index] = parseFloat(selectedVal * quantity);
+			}
+	});
+
+	var sum = 0;
+	$.each(tmp[idRows],function(){sum+=parseFloat(this) || 0;});
+	$(this).closest("div.container-fluid").find(".sum").text(sum.toFixed(2) + " €") ;
+	
+	
+	switch(idRows){
+		case "row-billets":
+		total_billets = sum; 
+		break;
+
+		case "row-pieces":
+		total_pieces = sum;
+		break;
+
+		case "row-centimes":
+		total_centimes = sum;
+		break;
+	}
+	
+	console.log(tmp );
+	total = total_billets + total_centimes + total_pieces;
+	$("h1").text(total + " €");	
+});
+
+}
+
+
+
+function cloneMe(){
+	 var btn = $(".btn.btn-success.btn-sm");
+	 btn.on("click", function(){
+	 var select = $(this).closest("div.col-6").find("select").last(); // Finding the select of the cloned row
+	 var input = $(this).closest("div.col-6").find("input[type=number]").last(); // Finding the select of the cloned row
+	 var optionsLength = $(select).children('option').length; // get lenght of options
+	 var rowsLenght = $(this).closest("div.col-6").find("div.row").length;  // get length of rows
+
+
+     /** in case of value is not selected 
+     ** no need to clone another
+     **/
+	if( select.val() ==='-1' ){
+		select.css("border","solid 1px red");
+		return false;
+	}else{
+		select.css("border","solid 1px lightgray");
+	}
+	/** input a valid quality from 0 to max **/
+	if( input.val() == "" ){
+		input.css("border","solid 1px red");
+		return false;
+	}else{
+		input.css("border","solid 1px lightgray");
+	}	
+
+
+	if ( rowsLenght < optionsLength ){
+		var clone = $(this).closest("div.col-6").find("div.row").first().clone();
+		clone.find("input[type=number]").val("0");
+		//clone.find("select").find("option:selected").next().attr('selected', 'selected');
+		clone.insertBefore($(this) );
+		onChange();
+	 }
+	  	 
+})
+
+}
+
+
+ $("#submit").on("click" ,function (event) {
+ 	
+ 	if(parseFloat(  $("h1").text() ) <= 0 ){
+ 		alert("Le total doit être supperieur à 0€! ");
+ 		return false;
+ 	}
+
+ 	if(  $("#type").val() ==0){
+ 		alert("Veuillez sélectionnez un type de transaction");
+ 		return false;
+ 	}
+
+    var formData = {
+      action : "save",
+      type: $("#type").val(),
+      date: $("#date").val(),
+      note: $("#note").val(),
+      montant : $("h1").text(),
+    };
+
+console.log(formData);
+
+ var request = $.ajax({
+      type: "POST",
+      url: "php/process.php",
+      data: formData
+    })
+
+ request.done(function(msg) {
+      console.log(msg);
+      if($.trim(msg)=="" || $.trim(msg)== null ){
+      	$("form").find('input[type=number]').val('');
+      	$("form").find('textarea').text('');
+      	$("form").find('select').val('-1');
+      	location.reload();
+      }
+    })
+
+ request.fail(function( jqXHR, textStatus ) {
+  alert( "Request failed: " + textStatus );
+});
+
+ event.preventDefault();
+});
+
+
+
+
+});
+</script>
+</html>
+
